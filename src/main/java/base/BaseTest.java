@@ -1,13 +1,10 @@
 package base;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import utilities.configReader;
-import utilities.driverFactory;
+import utilities.ConfigReader;
+import utilities.DriverFactory;
 
 public class BaseTest {
 
@@ -19,17 +16,17 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
         // load configReader
-        configReader.loadConfig();
+        ConfigReader.loadConfig();
 
         // get browser from the config property file
-        String browser = configReader.getProperty("browser");
+        String browser = ConfigReader.getProperty("browser");
 
         // initialize the browser
-        driverFactory.initDriver(browser);
+        this.driver = DriverFactory.initDriver(browser);
 
         // launch the url
-        String url = configReader.getProperty("baseUrl");
-        driverFactory.getDriver().get(url);
+        String url = ConfigReader.getProperty("baseUrl");
+        DriverFactory.getDriver().get(url);
 
     }
 
@@ -39,6 +36,6 @@ public class BaseTest {
     public void tearDown()
     {
         if(driver!=null)
-            driverFactory.quitDriver();
+            DriverFactory.quitDriver();
     }
 }

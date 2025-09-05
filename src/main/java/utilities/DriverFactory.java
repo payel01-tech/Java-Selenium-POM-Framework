@@ -4,12 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.time.Duration;
 
 // DriverFactory → start/quit browsers
 
-public class driverFactory {
+public class DriverFactory {
 
     // ThreadLocal<WebDriver> is used to enable safe parallel test execution
     // by ensuring each test thread gets its own WebDriver instance.

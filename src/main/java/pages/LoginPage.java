@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utilities.DriverFactory;
 
 public class LoginPage {
 
@@ -12,9 +13,9 @@ public class LoginPage {
     private By checkBoxRememberMe =  By.xpath("//input[@type=\"checkbox\" and @id=\"RememberMe\"]");
     private By loginButton = By.xpath("//button[@type=\"submit\" and contains(text(), \"Log in\")]");
 
-    public LoginPage(WebDriver driver)
+    public LoginPage()
     {
-        this.driver=driver;
+        this.driver= DriverFactory.getDriver();
     }
 
     public void enterUserName(String userName)
