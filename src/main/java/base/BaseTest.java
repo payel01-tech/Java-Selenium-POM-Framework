@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import utilities.ConfigReader;
 import utilities.DriverFactory;
 
-public class BaseTest {
+public class BaseTest extends DriverFactory{
 
     protected WebDriver driver;
 

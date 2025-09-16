@@ -3,16 +3,18 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utilities.DriverFactory;
+import utilities.LocatorReader;
 import utilities.WaitUtils;
 
 public class LoginPage {
 
+    LocatorReader locators = new LocatorReader();
     private WebDriver driver;
     private WaitUtils waitUtils;
-    private By usernameTextBox = By.id("Email");
-    private By passwordTextBox = By.id("Password");
-    private By checkBoxRememberMe =  By.xpath("//input[@type=\"checkbox\" and @id=\"RememberMe\"]");
-    private By loginButton = By.xpath("//button[@type=\"submit\" and contains(text(), \"Log in\")]");
+    private By usernameTextBox = locators.getProperties("login.userNameTextBox");
+    private By passwordTextBox = locators.getProperties("login.passwordTextBox");
+    private By checkBoxRememberMe =  locators.getProperties("login.rememberMeCheckBox");
+    private By loginButton = locators.getProperties("login.loginButton");
 
     public LoginPage()
     {

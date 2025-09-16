@@ -22,6 +22,8 @@ public class LocatorReader {
 
     public By getProperties(String key)
     {
+        if(prop == null)
+            loadLocatorReader();
         String value = prop.getProperty(key);
         String vals[] = value.split(":",2);
         String locatorType = vals[0];
